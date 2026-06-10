@@ -34,7 +34,7 @@ class CategoryController extends Controller
 
         $request->validate(
             [
-                'name' => 'required|string|max:255',
+                'name' => 'required|string|max:50',
                 'desc' => 'required|string'
             ],
             [
@@ -107,7 +107,7 @@ class CategoryController extends Controller
 
         $request->validate(
             [
-                'name' => 'required|string|max:255',
+                'name' => 'required|string|max:50',
                 'desc' => 'required|string'
             ],
             [

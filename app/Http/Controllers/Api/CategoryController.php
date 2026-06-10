@@ -15,11 +15,15 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return response()->json([
-            'success' => true,
-            'message' => 'Categories retrieved successfully',
-            'data' => $categories
-        ]);
+
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Categories retrieved successfully',
+                'data' => $categories
+            ],
+            200
+        );
     }
 
     /**
@@ -40,16 +44,21 @@ class CategoryController extends Controller
         );
 
 
-        $category = Category::create([
-            'name' => $request->name,
-            'desc' => $request->desc
-        ]);
+        $category = Category::create(
+            [
+                'name' => $request->name,
+                'desc' => $request->desc
+            ]
+        );
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Category created successfully',
-            'data' => $category
-        ], 201);
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Category created successfully',
+                'data' => $category
+            ],
+            201
+        );
     }
 
     /**
@@ -69,11 +78,14 @@ class CategoryController extends Controller
             );
         }
 
-        return response()->json([
-            'success' => true,
-            'message' => "Category retrieved successfully",
-            'data' => $category
-        ]);
+        return response()->json(
+            [
+                'success' => true,
+                'message' => "Category retrieved successfully",
+                'data' => $category
+            ],
+            200
+        );
     }
 
     /**
@@ -104,16 +116,21 @@ class CategoryController extends Controller
             ]
         );
 
-        $category->update([
-            'name' => $request->name,
-            'desc' => $request->desc
-        ]);
+        $category->update(
+            [
+                'name' => $request->name,
+                'desc' => $request->desc
+            ]
+        );
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Category update successfully',
-            'data' => $category
-        ]);
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Category update successfully',
+                'data' => $category
+            ],
+            200
+        );
     }
 
     /**
@@ -128,15 +145,19 @@ class CategoryController extends Controller
                 [
                     'success' => false,
                     'message' => 'Category not found!'
-                ], 404
+                ],
+                404
             );
         }
 
         $category->delete();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Category deleted successfully',
-        ]);
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Category deleted successfully',
+            ],
+            200
+        );
     }
 }
